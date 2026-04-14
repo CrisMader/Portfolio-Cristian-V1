@@ -1,0 +1,51 @@
+---
+// Sección Sobre mí:
+// - Bloque de texto con fondo verde gradiente + logo MADER (izquierda)
+// - Imagen de perfil (derecha)
+---
+
+<section id="sobre-mi" class="section-inner">
+  <!-- Encabezado de sección -->
+  <div class="flex items-center justify-between mb-16">
+    <h2 class="text-[#E2E3E4] text-lg font-mono">Sobre mí</h2>
+    <div class="flex-1 h-px bg-[#E2E3E4] ml-8 opacity-30"></div>
+  </div>
+
+  <!-- Contenido -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <!-- Bloque izquierda: texto + logo -->
+    <div class="relative">
+      <!-- Caja de texto con fondo verde -->
+      <div class="bg-[#49EB78] p-8 text-[#1F2634] text-sm leading-relaxed space-y-4">
+        <p>
+          {/* TODO: Añadir texto real sobre ti */}
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam
+          nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+          volutpat.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam
+          nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+          volutpat.
+        </p>
+      </div>
+
+      <!-- Logo MADER debajo del bloque -->
+      <div class="mt-4 bg-[#E2E3E4] inline-flex flex-col items-center p-4">
+        <img src="/logos/Logo.png" alt="MADER" class="w-12 h-12" />
+        <span class="text-[#1F2634] text-xs font-pixel mt-2">MADER</span>
+      </div>
+    </div>
+
+    <!-- Imagen de perfil (derecha) -->
+    <div class="bg-[#0d1117] aspect-square max-w-md w-full">
+      {/* TODO: Añadir foto de perfil */}
+      <img
+        src="/images/profile.jpg"
+        alt="Foto de perfil"
+        class="w-full h-full object-cover"
+        onerror="this.style.display='none'"
+      />
+    </div>
+  </div>
+</section>

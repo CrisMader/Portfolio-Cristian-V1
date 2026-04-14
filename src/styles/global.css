@@ -1,0 +1,239 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "LaNord";
+  src: url("/fonts/LaNord-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "LaNord";
+  src: url("/fonts/LaNord-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Jersey10";
+  src: url("/fonts/Jersey10-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --color-green-primary: #49EB78;
+  --color-green-dark: #02542A;
+  --color-bg: #1F2634;
+  --color-text: #E2E3E4;
+
+  --font-pixel: "Jersey10", monospace;
+  --font-mono: "JetBrains Mono", "Courier New", monospace;
+  --font-lanord: "LaNord", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #1F2634;
+  color: #E2E3E4;
+  font-family: var(--font-mono);
+}
+
+
+.btn-hero {
+  background-color: #49EB78;
+  color: #02542A;
+  padding: 8px 20px;
+  font-size: 0.875rem;
+  font-family: "LaNord", sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-hero:hover {
+  background-color: #02542A;
+  color: #49EB78;
+}
+
+.btn-hero:active {
+  background-color: #E2E3E4;
+  color: #000000;
+}
+
+
+.btn-outline {
+  border: 1px solid #49EB78;
+  color: #49EB78;
+  padding: 8px 20px;
+  font-size: 0.875rem;
+  font-family: var(--font-mono);
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-outline:hover {
+  background-color: #49EB78;
+  color: #1F2634;
+}
+
+.btn-outline:active {
+  background-color: #02542A;
+  border-color: #02542A;
+  color: #E2E3E4;
+}
+
+
+.btn-filled {
+  background-color: #49EB78;
+  color: #1F2634;
+  padding: 8px 20px;
+  font-size: 0.875rem;
+  font-family: var(--font-mono);
+  cursor: pointer;
+  transition: background-color 0.15s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-filled:hover {
+  background-color: #02542A;
+  color: #E2E3E4;
+}
+
+
+.font-pixel {
+  font-family: "Jersey10", monospace;
+}
+
+
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 160px 20px 32px;
+}
+
+.hero-top {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.hero-photo {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  object-position: center 35%;
+  box-shadow: 8px 8px 0px #000000;
+  display: block;
+  flex-shrink: 0;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 3.8vw, 4rem);
+  line-height: 1.2;
+  font-weight: 700;
+  color: #49EB78;
+  font-family: "LaNord", sans-serif;
+}
+
+.hero-description {
+  color: #49EB78;
+  font-size: 1.05rem;
+  line-height: 1.625;
+  font-family: "LaNord", sans-serif;
+  font-weight: 400;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hero-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 48px;
+}
+
+@media (min-width: 640px) {
+  .hero-section {
+    padding: 200px 40px 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-section {
+    padding: 240px 80px 48px;
+  }
+  .hero-content {
+    margin-top: 64px;
+    gap: 80px;
+  }
+  .hero-description {
+    max-width: 510px;
+  }
+  .hero-bottom {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-top: 0;
+  }
+}
+
+
+.section-inner {
+  min-height: 100vh;
+  padding: 60px 20px;
+}
+
+@media (min-width: 640px) {
+  .section-inner {
+    padding: 80px 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-inner {
+    padding: 80px 80px;
+  }
+}
+
+
+@keyframes pixel-color-cycle {
+  0%   { color: #49EB78; }
+  28%  { color: #49EB78; }
+  36%  { color: #E2E3E4; }
+  61%  { color: #E2E3E4; }
+  69%  { color: #02542A; }
+  94%  { color: #02542A; }
+  100% { color: #49EB78; }
+}
+
+.hero-pixel-word {
+  font-family: "Jersey10", monospace;
+  display: inline;
+  font-size: clamp(2.45rem, 4.8vw, 4.8rem);
+  color: #49EB78;
+  letter-spacing: 0.05em;
+}

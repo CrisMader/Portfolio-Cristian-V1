@@ -1,0 +1,52 @@
+---
+import type { Project } from '../data/projects';
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<article class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+  <div class="bg-[#0d1117] aspect-video overflow-hidden">
+    <img
+      src={project.image}
+      alt={project.title}
+      class="w-full h-full object-cover"
+    />
+  </div>
+
+  <div class="flex flex-col gap-4">
+    <p class="text-[#49EB78] text-sm leading-relaxed">
+      {project.description}
+    </p>
+
+    <div class="flex flex-wrap gap-2">
+      {project.tags.map((tag) => (
+        <span class="border border-[#E2E3E4] text-[#E2E3E4] text-xs px-3 py-1">
+          {tag}
+        </span>
+      ))}
+    </div>
+
+    <div class="flex gap-3 mt-6">
+      <a
+        href={project.liveUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-filled"
+      >
+        Ir a la página
+      </a>
+      <a
+        href={project.codeUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-outline"
+      >
+        Ver código
+      </a>
+    </div>
+  </div>
+</article>

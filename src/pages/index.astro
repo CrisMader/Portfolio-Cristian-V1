@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero';
+import Projects from '../components/Projects.astro';
+import About from '../components/About.astro';
+import Technologies from '../components/Technologies.astro';
+---
+
+<Layout title="MADER - Portfolio">
+  <Navbar />
+  <main>
+    <Hero client:load />
+    <Projects />
+    <Technologies />
+    <About />
+  </main>
+</Layout>

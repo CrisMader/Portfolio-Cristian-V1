@@ -1,0 +1,231 @@
+---
+interface NavItem {
+  section: string;
+  href: string;
+  alt: string;
+  label?: string;
+  normal: string;
+  hover: string;
+  click: string;
+}
+
+const navItems: NavItem[] = [
+  {
+    section: 'hero',
+    href: '#hero',
+    alt: 'Inicio',
+    normal: '/logos2/Logo.png',
+    hover: '/logos2/LogoHover.png',
+    click: '/logos2/Logo.png',
+  },
+  {
+    section: 'proyectos',
+    href: '#proyectos',
+    alt: 'Proyectos',
+    label: 'Proyectos',
+    normal: '/logos2/ProyectosLogo.png',
+    hover: '/logos2/ProyectosHover.png',
+    click: '/logos2/ProyectosLogo.png',
+  },
+  {
+    section: 'tecnologias',
+    href: '#tecnologias',
+    alt: 'Tecnologías',
+    label: 'Tecnologías',
+    normal: '/logos2/TecnologiasLogo.png',
+    hover: '/logos2/TecnologiasHover.png',
+    click: '/logos2/TecnologiasLogo.png',
+  },
+  {
+    section: 'sobre-mi',
+    href: '#sobre-mi',
+    alt: 'Sobre mí',
+    label: 'Sobre mí',
+    normal: '/logos2/SobreMiLogo.png',
+    hover: '/logos2/SobreMiHover.png',
+    click: '/logos2/SobreMiLogo.png',
+  },
+];
+---
+
+<nav class="navbar">
+  <div class="navbar__icons">
+    {navItems.map((item) => (
+      <a
+        href={item.href}
+        class={`nav-link${!item.label ? ' nav-link--logo' : ''}`}
+        data-section={item.section}
+        aria-label={item.alt}
+      >
+        <span class="nav-icon">
+          <img src={item.normal} alt={item.alt} class="nav-img nav-img--normal" />
+          <img src={item.hover}  alt={item.alt} class="nav-img nav-img--hover"  />
+          <img src={item.click}  alt={item.alt} class="nav-img nav-img--click"  />
+        </span>
+        {item.label && <span class="nav-label">{item.label}</span>}
+      </a>
+    ))}
+  </div>
+
+  <span class="navbar__brand">
+    {['M','A','D','E','R'].map((letter, i) => (
+      <span class="wave-letter" style={`--i:${i}`}>{letter}</span>
+    ))}
+  </span>
+</nav>
+
+<style>
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+    background-color: #1F2634;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .navbar__icons {
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+
+  .navbar__brand {
+    color: #49EB78;
+    font-family: "Jersey10", monospace;
+    font-size: 2.4rem;
+    letter-spacing: 0.02em;
+    margin-right: 0;
+    cursor: default;
+    display: inline-flex;
+  }
+
+  .wave-letter {
+    display: inline-block;
+  }
+
+  @keyframes wave {
+    0%, 100% { transform: translateY(0); color: #49EB78; }
+    40%       { transform: translateY(-10px); color: #E2E3E4; }
+    60%       { transform: translateY(-6px); color: #E2E3E4; }
+  }
+
+  .navbar__brand:hover .wave-letter {
+    animation: wave 0.8s ease infinite;
+    animation-delay: calc(var(--i) * 0.1s);
+  }
+
+  .nav-link {
+    display: inline-flex;
+    align-items: stretch;
+    text-decoration: none;
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  .nav-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #49EB78;
+    flex-shrink: 0;
+    width: 58px;
+    height: 58px;
+    transition: background-color 0.3s ease;
+  }
+
+  .nav-link--logo .nav-icon {
+    background-color: #E2E3E4;
+  }
+
+  .nav-link:hover .nav-icon {
+    background-color: #02542A;
+  }
+
+  .nav-link.is-clicking .nav-icon {
+    background-color: #49EB78;
+  }
+
+  .nav-img {
+    height: 36px;
+    width: auto;
+    display: none;
+    flex-shrink: 0;
+  }
+
+  .nav-img--normal { display: block; }
+
+  .nav-link:hover .nav-img--normal  { display: none; }
+  .nav-link:hover .nav-img--hover   { display: block; }
+
+  .nav-link.is-clicking .nav-img--normal { display: none; }
+  .nav-link.is-clicking .nav-img--hover  { display: none; }
+  .nav-link.is-clicking .nav-img--click  { display: block; }
+
+  .nav-label {
+    font-family: "Jersey10", monospace;
+    font-size: 1rem;
+    color: #49EB78;
+    white-space: nowrap;
+    background-color: #02542A;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    max-width: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-width 0.7s ease, opacity 0.4s ease, padding 0.7s ease;
+  }
+
+  .nav-link:hover .nav-label,
+  .nav-link.is-clicking .nav-label {
+    max-width: 160px;
+    opacity: 1;
+    padding: 0 14px;
+  }
+
+  .nav-link.is-clicking .nav-label {
+    background-color: #49EB78;
+    color: #02542A;
+  }
+
+  @media (min-width: 640px) {
+    .navbar {
+      padding: 14px 40px;
+    }
+    .navbar__brand {
+      font-size: 2.4rem;
+      margin-right: 20px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .navbar {
+      padding: 16px 80px;
+    }
+    .navbar__brand {
+      font-size: 2.4rem;
+      margin-right: 0;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLAnchorElement>('.nav-link').forEach((link) => {
+    link.addEventListener('mousedown', () => {
+      link.classList.add('is-clicking');
+    });
+
+    link.addEventListener('mouseup', () => {
+      link.classList.remove('is-clicking');
+    });
+
+    link.addEventListener('mouseleave', () => {
+      link.classList.remove('is-clicking');
+    });
+  });
+</script>
