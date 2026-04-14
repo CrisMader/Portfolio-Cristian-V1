@@ -1,43 +1,44 @@
-# Astro Starter Kit: Minimal
+# Portfolio — Cristian Trapiello
 
-```sh
-npm create astro@latest -- --template minimal
-```
+## Español
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Portfolio personal de **Cristian Trapiello**, desarrollador full stack con base en Madrid, España.
 
-## 🚀 Project Structure
+Me dedico al desarrollo web con un enfoque completo: desde la lógica del servidor hasta la interfaz de usuario. Me interesa construir soluciones claras, bien estructuradas y fáciles de mantener, entendiendo el problema antes de escribir la primera línea de código.
 
-Inside of your Astro project, you'll see the following folders and files:
+Mi objetivo es seguir creciendo como desarrollador trabajando en productos reales, donde cada decisión técnica tenga un propósito y un impacto concreto.
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+**Stack principal:** JavaScript, TypeScript, React, Python, Flask, FastAPI, PostgreSQL, Tailwind CSS
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+**Contacto:**
+- GitHub: [github.com/CrisMader](https://github.com/CrisMader)
+- LinkedIn: [linkedin.com/in/cristian-trapiello](https://www.linkedin.com/in/cristian-trapiello/)
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+---
 
-Any static assets, like images, can be placed in the `public/` directory.
+## English
 
-## 🧞 Commands
+Personal portfolio of **Cristian Trapiello**, a full stack developer based in Madrid, Spain.
 
-All commands are run from the root of the project, from a terminal:
+I focus on web development with a complete approach: from server logic to user interface. I'm interested in building clear, well-structured, and maintainable solutions — understanding the problem before writing the first line of code.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+My goal is to keep growing as a developer by working on real products, where every technical decision has a clear purpose and a concrete impact.
 
-## 👀 Want to learn more?
+**Main stack:** JavaScript, TypeScript, React, Python, Flask, FastAPI, PostgreSQL, Tailwind CSS
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+**Contact:**
+- GitHub: [github.com/CrisMader](https://github.com/CrisMader)
+- LinkedIn: [linkedin.com/in/cristian-trapiello](https://www.linkedin.com/in/cristian-trapiello/)
+
+---
+
+## Proyecto / Project
+
+Construido con **Astro + React + Tailwind CSS v4**.
+
+| Comando / Command | Acción / Action |
+| :---------------- | :-------------- |
+| `npm install`     | Instala dependencias / Install dependencies |
+| `npm run dev`     | Servidor local en `localhost:4321` / Local dev server |
+| `npm run build`   | Build de producción / Production build |
+| `npm run preview` | Preview del build / Preview the build |
