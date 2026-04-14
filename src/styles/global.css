@@ -150,7 +150,7 @@ body {
 }
 
 .hero-title {
-  font-size: clamp(2rem, 3.8vw, 4rem);
+  font-size: clamp(2.4rem, 4.5vw, 4.8rem);
   line-height: 1.2;
   font-weight: 700;
   color: #49EB78;
@@ -159,7 +159,7 @@ body {
 
 .hero-description {
   color: #49EB78;
-  font-size: 1.05rem;
+  font-size: 0.92rem;
   line-height: 1.625;
   font-family: "LaNord", sans-serif;
   font-weight: 400;
@@ -190,8 +190,11 @@ body {
     margin-top: 64px;
     gap: 80px;
   }
+  .hero-title {
+    max-width: 70%;
+  }
   .hero-description {
-    max-width: 510px;
+    max-width: 570px;
   }
   .hero-bottom {
     flex-direction: row;
@@ -232,8 +235,9 @@ body {
 
 .hero-pixel-word {
   font-family: "Jersey10", monospace;
-  display: inline;
-  font-size: clamp(2.45rem, 4.8vw, 4.8rem);
+  display: block;
+  font-size: clamp(2.8rem, 5.2vw, 5.4rem);
   color: #49EB78;
   letter-spacing: 0.05em;
+  margin-top: 8px;
 }

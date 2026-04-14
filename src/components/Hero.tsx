@@ -41,7 +41,7 @@ export default function Hero() {
     <section id="hero" className="hero-section">
       <div className="hero-top">
         <h1 className="hero-title">
-          Desarrollo soluciones full stack que transforman conceptos en{' '}
+          <span style={{ display: 'block' }}>Desarrollo soluciones full stack que transforman conceptos en</span>
           <span className="hero-pixel-word">
             {displayText}
             <span className="animate-pulse">|</span>
@@ -83,7 +83,7 @@ export default function Hero() {
 
         <div className="flex items-center gap-2 text-[#49EB78] text-sm">
           <img src="/logos/PinLogo.png" alt="Ubicación" style={{ height: '20px', width: 'auto' }} />
-          <span>Madrid, España</span>
+          <span style={{ fontFamily: '"LaNord", sans-serif', fontWeight: 700 }}>Madrid, España</span>
         </div>
       </div>
     </section>
