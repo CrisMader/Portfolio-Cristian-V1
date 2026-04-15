@@ -8,29 +8,37 @@ interface Props {
 const { project } = Astro.props;
 ---
 
-<article class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-  <div class="bg-[#0d1117] aspect-video overflow-hidden">
+<article class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+  <a
+    href={project.liveUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="project-image-link"
+  >
     <img
       src={project.image}
       alt={project.title}
       class="w-full h-full object-cover"
     />
-  </div>
+  </a>
 
-  <div class="flex flex-col gap-4">
-    <p class="text-[#49EB78] text-sm leading-relaxed">
+  <div class="flex flex-col gap-4 h-full">
+    <h3 class="project-title" style="font-family: 'LaNord', sans-serif; font-weight: 700; font-size: clamp(2rem, 4vw, 3.5rem); color: #49EB78; line-height: 1.1;">
+      {project.title}
+    </h3>
+    <p style="font-family: 'LaNord', sans-serif; font-weight: 400; font-size: 1.1rem;" class="text-[#49EB78] leading-relaxed">
       {project.description}
     </p>
 
     <div class="flex flex-wrap gap-2">
       {project.tags.map((tag) => (
-        <span class="border border-[#E2E3E4] text-[#E2E3E4] text-xs px-3 py-1">
+        <span class="project-tag" style="background-color: #E2E3E4; color: #000; font-family: 'LaNord', sans-serif; font-weight: 700; font-size: 0.95rem; padding: 7px 20px;">
           {tag}
         </span>
       ))}
     </div>
 
-    <div class="flex gap-3 mt-6">
+    <div class="flex gap-3 mt-auto pt-8">
       <a
         href={project.liveUrl}
         target="_blank"

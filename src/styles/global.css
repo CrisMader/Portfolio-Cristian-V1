@@ -75,7 +75,8 @@ body {
   color: #49EB78;
   padding: 8px 20px;
   font-size: 0.875rem;
-  font-family: var(--font-mono);
+  font-family: 'LaNord', sans-serif;
+  font-weight: 700;
   background: transparent;
   cursor: pointer;
   transition: background-color 0.15s, color 0.15s;
@@ -95,12 +96,52 @@ body {
 }
 
 
+.project-image-link {
+  display: block;
+  background-color: #0d1117;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  transform: translateY(0);
+  box-shadow: none;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.project-image-link:hover {
+  transform: translateY(-10px);
+  box-shadow: 10px 10px 0px 0px #000;
+}
+
+.project-title {
+  transform: translateY(0);
+  text-shadow: none;
+  transition: transform 0.5s ease, text-shadow 0.5s ease;
+  display: inline-block;
+}
+
+.project-tag {
+  transform: translateY(0);
+  box-shadow: none;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  display: inline-block;
+}
+
+.project-tag:hover {
+  transform: translateY(-4px);
+  box-shadow: 4px 4px 0px 0px #000;
+}
+
+.project-title:hover {
+  transform: translateY(-10px);
+  text-shadow: 5px 5px 0px #000;
+}
+
 .btn-filled {
   background-color: #49EB78;
   color: #1F2634;
   padding: 8px 20px;
   font-size: 0.875rem;
-  font-family: var(--font-mono);
+  font-family: 'LaNord', sans-serif;
+  font-weight: 700;
   cursor: pointer;
   transition: background-color 0.15s;
   text-decoration: none;
@@ -109,7 +150,7 @@ body {
 
 .btn-filled:hover {
   background-color: #02542A;
-  color: #E2E3E4;
+  color: #49EB78;
 }
 
 
