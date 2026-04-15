@@ -1,33 +1,17 @@
 export interface Technology {
   name: string;
-  icon: string; // URL o nombre del icono
-  category: 'frontend' | 'backend' | 'database' | 'versionControl';
+  icon: string;
 }
 
 export const technologies: Technology[] = [
-  // Frontend
-  { name: 'HTML', icon: 'html5', category: 'frontend' },
-  { name: 'CSS', icon: 'css3', category: 'frontend' },
-  { name: 'JavaScript', icon: 'javascript', category: 'frontend' },
-  { name: 'TypeScript', icon: 'typescript', category: 'frontend' },
-  { name: 'Bootstrap', icon: 'bootstrap', category: 'frontend' },
-  { name: 'TailwindCSS', icon: 'tailwindcss', category: 'frontend' },
-  { name: 'React', icon: 'react', category: 'frontend' },
-  // Backend
-  { name: 'Python', icon: 'python', category: 'backend' },
-  { name: 'Flask', icon: 'flask', category: 'backend' },
-  { name: 'FastAPI', icon: 'fastapi', category: 'backend' },
-  // Base de datos
-  { name: 'SQL', icon: 'sql', category: 'database' },
-  { name: 'SQLAlchemy', icon: 'sqlalchemy', category: 'database' },
-  // Control de versiones
-  { name: 'Git', icon: 'git', category: 'versionControl' },
-  { name: 'GitHub', icon: 'github', category: 'versionControl' },
+  { name: 'HTML',       icon: '/images/tecnologias/HTML.png' },
+  { name: 'CSS',        icon: '/images/tecnologias/CSS.png' },
+  { name: 'TypeScript', icon: '/images/tecnologias/TS.png' },
+  { name: 'React',      icon: '/images/tecnologias/React.png' },
+  { name: 'Tailwind',   icon: '/images/tecnologias/Tailwind.png' },
+  { name: 'Python',     icon: '/images/tecnologias/Python.png' },
+  { name: 'PostgreSQL', icon: '/images/tecnologias/postgresql.png' },
+  { name: 'Postman',    icon: '/images/tecnologias/postman.png' },
+  { name: 'Git',        icon: '/images/tecnologias/git.png' },
+  { name: 'GitHub',     icon: '/images/tecnologias/github.png' },
 ];
-
-export const categoryLabels: Record<Technology['category'], string> = {
-  frontend: 'Frontend',
-  backend: 'Backend',
-  database: 'Base de datos',
-  versionControl: 'Control de versiones',
-};

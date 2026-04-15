@@ -1,44 +1,96 @@
 ---
-import { technologies, categoryLabels } from '../data/technologies';
+import { technologies } from '../data/technologies';
 
-// Agrupar tecnologías por categoría
-const grouped = technologies.reduce(
-  (acc, tech) => {
-    if (!acc[tech.category]) acc[tech.category] = [];
-    acc[tech.category].push(tech);
-    return acc;
-  },
-  {} as Record<string, typeof technologies>
-);
+const row1 = [...technologies, ...technologies];
+const row2 = [...technologies, ...technologies];
 ---
 
-<section id="tecnologias" class="section-inner">
-  <!-- Encabezado de sección -->
+<section id="tecnologias" class="section-inner" style="min-height: unset;">
   <div class="flex items-center justify-between mb-16">
     <h2 class="text-[#E2E3E4] text-lg font-mono">Tecnologías</h2>
     <div class="flex-1 h-px bg-[#E2E3E4] ml-8 opacity-30"></div>
   </div>
 
-  <!-- Grid de tecnologías por categoría -->
-  <div class="space-y-12">
-    {Object.entries(grouped).map(([category, techs]) => (
-      <div>
-        <h3 class="text-[#49EB78] text-sm font-mono mb-6">
-          {categoryLabels[category as keyof typeof categoryLabels]}
-        </h3>
-        <div class="flex flex-wrap gap-8 items-center">
-          {techs.map((tech) => (
-            <div class="flex flex-col items-center gap-2 group">
-              <div class="w-16 h-16 flex items-center justify-center">
-                {/* TODO: Añadir imágenes de iconos reales */}
-                <span class="text-[#E2E3E4] text-xs text-center group-hover:text-[#49EB78] transition-colors">
-                  {tech.name}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
+  <div class="tech-belt-wrapper mx-auto">
+    <!-- Fila 1: izquierda a derecha -->
+    <div class="tech-belt-row mb-8">
+      <div class="tech-belt-track tech-belt-ltr">
+        {row1.map((tech) => (
+          <div class="tech-item">
+            <img src={tech.icon} alt={tech.name} title={tech.name} />
+          </div>
+        ))}
       </div>
-    ))}
+    </div>
+
+    <!-- Fila 2: derecha a izquierda -->
+    <div class="tech-belt-row">
+      <div class="tech-belt-track tech-belt-rtl">
+        {row2.map((tech) => (
+          <div class="tech-item">
+            <img src={tech.icon} alt={tech.name} title={tech.name} />
+          </div>
+        ))}
+      </div>
+    </div>
   </div>
 </section>
+
+<style>
+  .tech-belt-wrapper {
+    overflow-x: hidden;
+    overflow-y: visible;
+    -webkit-mask: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+    mask: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+  }
+
+  .tech-belt-row {
+    overflow: visible;
+  }
+
+  .tech-belt-track {
+    display: flex;
+    width: max-content;
+    gap: 64px;
+    align-items: center;
+    padding: 20px 0;
+  }
+
+  .tech-belt-ltr {
+    animation: scroll-ltr 22s linear infinite;
+  }
+
+  .tech-belt-rtl {
+    animation: scroll-rtl 22s linear infinite;
+  }
+
+  @keyframes scroll-ltr {
+    from { transform: translateX(-50%); }
+    to   { transform: translateX(0%); }
+  }
+
+  @keyframes scroll-rtl {
+    from { transform: translateX(0%); }
+    to   { transform: translateX(-50%); }
+  }
+
+  .tech-item {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tech-item img {
+    width: 88px;
+    height: 88px;
+    object-fit: contain;
+    filter: grayscale(100%) brightness(0.5);
+    transition: filter 0.4s ease;
+    cursor: default;
+  }
+
+  .tech-item img:hover {
+    filter: grayscale(0%) brightness(1.1) drop-shadow(0px 0px 12px rgba(73, 235, 120, 0.7));
+  }
+</style>

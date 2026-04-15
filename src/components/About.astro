@@ -16,36 +16,47 @@
     <!-- Bloque izquierda: texto + logo -->
     <div class="relative">
       <!-- Caja de texto con fondo verde -->
-      <div class="bg-[#49EB78] p-8 text-[#1F2634] text-sm leading-relaxed space-y-4">
-        <p>
-          {/* TODO: Añadir texto real sobre ti */}
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam
-          nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-          volutpat.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam
-          nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-          volutpat.
-        </p>
+      <div class="bg-[#49EB78] p-8 leading-relaxed space-y-4" style="font-family: 'LaNord', sans-serif; font-weight: 400; color: #02542A; font-size: 0.9rem;">
+        <p>Hola, soy Cristian Trapiello.</p>
+        <p>Tengo 23 años (a punto de cumplir 24) y quería contarte un poco sobre mí.</p>
+        <p>Estudié desarrollo de videojuegos, una etapa clave porque fue ahí donde descubrí la programación… y me enganché por completo. El problema es que el sector no es precisamente el más accesible, así que, tras año y medio haciendo trabajos freelance que —por cosas de la vida— nunca llegaron a publicarse (y, por tanto, tampoco a mi CV), decidí dar el salto al desarrollo web.</p>
+        <p>A día de hoy trabajo como Teacher Assistant en 4GeeksAcademy España, donde sigo aprendiendo y ayudando a otros a hacerlo. Aun así, estoy buscando una oportunidad que realmente me rete y me permita poner en práctica todo lo que sé.</p>
+        <p>Disfruto mucho programando, enfrentándome a problemas y encontrando soluciones eficientes. Al final, es en ese proceso donde más se aprende… y donde mejor me lo paso.</p>
+        <p>Gracias por leerme, y ojalá podamos trabajar o colaborar pronto.</p>
       </div>
 
-      <!-- Logo MADER debajo del bloque -->
-      <div class="mt-4 bg-[#E2E3E4] inline-flex flex-col items-center p-4">
-        <img src="/logos/Logo.png" alt="MADER" class="w-12 h-12" />
-        <span class="text-[#1F2634] text-xs font-pixel mt-2">MADER</span>
+      <!-- Logo M pegado al recuadro verde -->
+      <div class="bg-[#E2E3E4] inline-flex items-center justify-center p-4">
+        <img src="/logos2/Logo.png" alt="Logo" class="w-12 h-12" />
       </div>
     </div>
 
     <!-- Imagen de perfil (derecha) -->
-    <div class="bg-[#0d1117] aspect-square max-w-md w-full">
-      {/* TODO: Añadir foto de perfil */}
-      <img
-        src="/images/profile.jpg"
-        alt="Foto de perfil"
-        class="w-full h-full object-cover"
-        onerror="this.style.display='none'"
-      />
+    <div class="flex flex-col">
+      <div class="aspect-square max-w-md w-full overflow-hidden profile-photo">
+        <img
+          src="/images/FotoCris.png"
+          alt="Foto de perfil"
+          class="w-full h-full object-cover"
+          style="object-position: center 35%;"
+        />
+      </div>
+      <p style="font-family: 'Jersey10', monospace; color: #49EB78; font-size: 1.9rem; margin-top: 16px; letter-spacing: 0.08em; text-align: left;">
+        Cristian Trapiello
+      </p>
     </div>
   </div>
 </section>
+
+<style>
+  .profile-photo {
+    box-shadow: none;
+    transform: translate(0, 0);
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
+  }
+
+  .profile-photo:hover {
+    box-shadow: 8px 8px 0px 0px #000;
+    transform: translate(-4px, -4px);
+  }
+</style>
