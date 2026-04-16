@@ -9,24 +9,40 @@ const { project } = Astro.props;
 ---
 
 <article class="grid grid-cols-1 min-[1368px]:grid-cols-2 gap-8 items-stretch">
-  <a
-    href={project.liveUrl}
-    target="_blank"
-    rel="noopener noreferrer"
-    class="project-image-link"
-  >
-    <img
-      src={project.image}
-      alt={project.title}
-      class="w-full h-full object-cover"
-    />
-  </a>
+  {project.comingSoon ? (
+    <div class="project-image-link coming-soon-img">
+      <img
+        src={project.image}
+        alt={project.title}
+        class="w-full h-full object-cover"
+      />
+    </div>
+  ) : (
+    <a
+      href={project.liveUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="project-image-link"
+    >
+      <img
+        src={project.image}
+        alt={project.title}
+        class="w-full h-full object-cover"
+      />
+    </a>
+  )}
 
   <div class="flex flex-col gap-4">
-    <h3 class="project-title" style="font-family: 'LaNord', sans-serif; font-weight: 700; font-size: clamp(2rem, 4vw, 3.5rem); color: #49EB78; line-height: 1.1;">
+    <h3
+      class={`project-title${project.comingSoon ? ' cs-title' : ''}`}
+      style="font-family: 'LaNord', sans-serif; font-weight: 700; font-size: clamp(2rem, 4vw, 3.5rem); color: #49EB78; line-height: 1.1;"
+    >
       {project.title}
     </h3>
-    <p style="font-family: 'LaNord', sans-serif; font-weight: 400; font-size: 1.1rem;" class="text-[#49EB78] leading-relaxed">
+    <p
+      style="font-family: 'LaNord', sans-serif; font-weight: 400; font-size: 1.1rem;"
+      class={`leading-relaxed${project.comingSoon ? ' cs-desc text-[#49EB78]' : ' text-[#49EB78]'}`}
+    >
       {project.description}
     </p>
 
@@ -39,22 +55,74 @@ const { project } = Astro.props;
     </div>
 
     <div class="flex flex-wrap gap-3 mt-auto pt-8">
-      <a
-        href={project.liveUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn-filled"
-      >
-        Ir a la página
-      </a>
-      <a
-        href={project.codeUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn-outline"
-      >
-        Ver código
-      </a>
+      {project.comingSoon ? (
+        <Fragment>
+          <span class="btn-filled" style="opacity: 0.35; cursor: default; pointer-events: none;">
+            Ir a la página
+          </span>
+          <span class="btn-outline" style="opacity: 0.35; cursor: default; pointer-events: none;">
+            Ver código
+          </span>
+        </Fragment>
+      ) : (
+        <Fragment>
+          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" class="btn-filled">
+            Ir a la página
+          </a>
+          <a href={project.codeUrl} target="_blank" rel="noopener noreferrer" class="btn-outline">
+            Ver código
+          </a>
+        </Fragment>
+      )}
     </div>
   </div>
 </article>
+
+<style>
+  .coming-soon-img {
+    cursor: url('/cursor/Pointer.png') 4 4, pointer;
+  }
+
+
+  @keyframes glitch-shake {
+    0%   { transform: translateX(0); }
+    8%   { transform: translateX(-18px); }
+    18%  { transform: translateX(18px); }
+    28%  { transform: translateX(-24px); }
+    38%  { transform: translateX(24px); }
+    48%  { transform: translateX(-16px); }
+    58%  { transform: translateX(16px); }
+    68%  { transform: translateX(-10px); }
+    78%  { transform: translateX(10px); }
+    88%  { transform: translateX(-4px); }
+    94%  { transform: translateX(4px); }
+    100% { transform: translateX(0); }
+  }
+
+  .glitch-active {
+    animation: glitch-shake 0.65s ease;
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.coming-soon-img').forEach((el) => {
+    el.addEventListener('click', () => {
+      const article = el.closest('article');
+      if (!article) return;
+
+      const title = article.querySelector('.cs-title') as HTMLElement | null;
+      const desc  = article.querySelector('.cs-desc')  as HTMLElement | null;
+
+      el.classList.add('glitch-active');
+      el.addEventListener('animationend', () => el.classList.remove('glitch-active'), { once: true });
+
+      if (title) { title.style.transition = 'none'; title.style.color = '#E05555'; }
+      if (desc)  { desc.style.transition  = 'none'; desc.style.color  = '#E05555'; }
+
+      setTimeout(() => {
+        if (title) { title.style.transition = 'color 0.5s ease'; title.style.color = '#49EB78'; }
+        if (desc)  { desc.style.transition  = 'color 0.5s ease'; desc.style.color  = '#49EB78'; }
+      }, 1200);
+    });
+  });
+</script>
