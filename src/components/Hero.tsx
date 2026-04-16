@@ -73,7 +73,7 @@ export default function Hero() {
           >
             LinkedIn
           </a>
-          <a href="mailto:mader.projects@gmail.com" className="btn-hero">
+          <a href="https://mail.google.com/mail/?view=cm&to=mader.projects@gmail.com" target="_blank" rel="noopener noreferrer" className="btn-hero">
             Contáctame
           </a>
           <a href="/CV-CristianTrapielloFS.pdf" download className="btn-hero">
