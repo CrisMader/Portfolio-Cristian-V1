@@ -105,6 +105,34 @@ const { project } = Astro.props;
 </style>
 
 <script>
+  const GLITCH_CHARS = '!@#$%^&*<>?/\\|~█▓▒░▀▄▌▐±§Ω∆';
+
+  function corruptText(original: string): string {
+    return original.split('').map((char) => {
+      if (char === ' ') return ' ';
+      return Math.random() < 0.55
+        ? GLITCH_CHARS[Math.floor(Math.random() * GLITCH_CHARS.length)]
+        : char;
+    }).join('');
+  }
+
+  document.querySelectorAll('.coming-soon-img').forEach((imgEl) => {
+    const article = imgEl.closest('article');
+    if (!article) return;
+
+    const allTags = Array.from(article.querySelectorAll('.project-tag')) as HTMLElement[];
+    const count = Math.max(2, Math.floor(allTags.length * 0.5));
+    const shuffled = [...allTags].sort(() => Math.random() - 0.5);
+    const corruptedTags = shuffled.slice(0, count);
+
+    corruptedTags.forEach((tag) => {
+      const original = tag.textContent ?? '';
+      setInterval(() => {
+        tag.textContent = corruptText(original);
+      }, 120);
+    });
+  });
+
   document.querySelectorAll('.coming-soon-img').forEach((el) => {
     el.addEventListener('click', () => {
       const article = el.closest('article');
