@@ -73,7 +73,7 @@ export default function Hero() {
           >
             LinkedIn
           </a>
-          <a href="#sobre-mi" className="btn-hero">
+          <a href="mailto:mader.projects@gmail.com" className="btn-hero">
             Contáctame
           </a>
           <a href="/CV-CristianTrapielloFS.pdf" download className="btn-hero">
