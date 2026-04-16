@@ -43,6 +43,29 @@ body {
   background-color: #1F2634;
   color: #E2E3E4;
   font-family: var(--font-mono);
+  cursor: url('/cursor/Mouse.png') 4 4, auto;
+}
+
+a, button, [role="button"], label, select, summary, [type="button"], [type="submit"], [type="reset"] {
+  cursor: url('/cursor/Pointer.png') 4 4, pointer;
+}
+
+a *, button *, [role="button"] *, [type="button"] *, [type="submit"] * {
+  cursor: inherit;
+}
+
+a:active, button:active, [role="button"]:active, [type="button"]:active, [type="submit"]:active,
+a:active *, button:active *, [role="button"]:active * {
+  cursor: url('/cursor/Click.png') 4 4, pointer;
+}
+
+input[type="text"], input[type="email"], input[type="password"], input[type="search"],
+input[type="url"], input[type="number"], textarea, [contenteditable] {
+  cursor: url('/cursor/Select.png') 15 4, text;
+}
+
+p, h1, h2, h3, h4, h5, h6, li, td, th {
+  cursor: url('/cursor/Select.png') 15 4, text;
 }
 
 
@@ -53,7 +76,6 @@ body {
   font-size: 0.875rem;
   font-family: "LaNord", sans-serif;
   font-weight: 700;
-  cursor: pointer;
   transition: background-color 0.15s, color 0.15s;
   text-decoration: none;
   display: inline-block;
@@ -78,7 +100,6 @@ body {
   font-family: 'LaNord', sans-serif;
   font-weight: 700;
   background: transparent;
-  cursor: pointer;
   transition: background-color 0.15s, color 0.15s;
   text-decoration: none;
   display: inline-block;
@@ -142,7 +163,6 @@ body {
   font-size: 0.875rem;
   font-family: 'LaNord', sans-serif;
   font-weight: 700;
-  cursor: pointer;
   transition: background-color 0.15s;
   text-decoration: none;
   display: inline-block;
