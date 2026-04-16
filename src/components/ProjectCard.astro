@@ -105,15 +105,16 @@ const { project } = Astro.props;
 </style>
 
 <script>
-  const GLITCH_CHARS = '!@#$%^&*<>?/\\|~█▓▒░▀▄▌▐±§Ω∆';
+  const GLITCH_CHARS = '!@#$%^&*<>?/\\|~+-=';
 
   function corruptText(original: string): string {
-    return original.split('').map((char) => {
-      if (char === ' ') return ' ';
-      return Math.random() < 0.55
-        ? GLITCH_CHARS[Math.floor(Math.random() * GLITCH_CHARS.length)]
-        : char;
-    }).join('');
+    const chars = original.split('');
+    const indices = chars.map((_, i) => i).filter(i => chars[i] !== ' ');
+    const picks = indices.sort(() => Math.random() - 0.5).slice(0, 2);
+    picks.forEach(i => {
+      chars[i] = GLITCH_CHARS[Math.floor(Math.random() * GLITCH_CHARS.length)];
+    });
+    return chars.join('');
   }
 
   document.querySelectorAll('.coming-soon-img').forEach((imgEl) => {
@@ -127,6 +128,10 @@ const { project } = Astro.props;
 
     corruptedTags.forEach((tag) => {
       const original = tag.textContent ?? '';
+      tag.style.width = tag.offsetWidth + 'px';
+      tag.style.display = 'inline-block';
+      tag.style.whiteSpace = 'nowrap';
+      tag.style.overflow = 'hidden';
       setInterval(() => {
         tag.textContent = corruptText(original);
       }, 120);
